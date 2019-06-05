@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" id="btap1" value="Bai Tap 1" onclick="btap1();"/><br/>
+    <input type="button" id="btap2" value="Bai Tap 2" onclick="btap2();"/><br/>
+    <input type="button" id="btap3" value="Bai Tap 3" onclick="btap3();"/><br/>
+
+    <div id="showMessage"></div>
+
+    <script>
+        
+        function btap1() {
+            let myArray = ["Red","Green","White","Black"];
+            //document.getElementById('showMessage').innerHTML = myArray.toString();
+            document.getElementById('showMessage').innerHTML = myArray.join(',');
+        }
+
+        function btap2() {
+            let num = prompt('Nhap day so muon tach : ');
+            let str = num.toString();
+            let result = [str[0]];
+
+            for(let x=1; x<str.length; x++)
+            {
+                if((str[x-1]%2 === 0)&&(str[x]%2 === 0))
+                {
+                    result.push('-', str[x]);
+                }
+                else
+                {
+                    result.push(str[x]);
+                }
+            }
+            document.getElementById('showMessage').innerHTML = result.join('');
+        }
+        
+        function btap3() {
+            let chuoi = prompt('Nhap chuoi ban muon doi : ');
+            let str = chuoi.toString();
+            let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+            let result = [];
+
+            for(x=0; x<str.length; x++)
+            {
+                if(UPPER.indexOf(str[x]) !== -1)
+                {
+                    result.push(str[x].toLowerCase());
+                }
+                else if(LOWER.indexOf(str[x]) !== -1)
+                {
+                    result.push(str[x].toUpperCase());
+                }
+                else
+                {
+                    result.push(str[x]);
+                }
+            }
+            document.getElementById('showMessage').innerHTML = result.join('');
+        }
+        
+    </script>
+</body>
+</html>
